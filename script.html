@@ -84,3 +84,427 @@ let student = {
     marks: 95
 };
 console.log(student.name);
+
+____
+
+Perfect — let's start DOM Manipulation + Event Creation from the absolute basics, then go step-by-step into powerful examples.
+
+
+---
+
+🌟 1. What is the DOM?
+
+DOM = Document Object Model
+It represents your HTML page as a tree of objects that JavaScript can control.
+
+Example HTML:
+
+<h1 id="title">Hello</h1>
+
+JS can access it like:
+
+document.getElementById("title")
+
+
+---
+
+🌟 2. Selecting Elements (Most Important Part)
+
+✅ 1. getElementById
+
+document.getElementById("title")
+
+✅ 2. getElementsByClassName
+
+document.getElementsByClassName("box")
+
+✅ 3. getElementsByTagName
+
+document.getElementsByTagName("p")
+
+✅ 4Perfect — let's start DOM Manipulation + Event Creation from the absolute basics, then go step-by-step into powerful examples.
+
+
+---
+
+ 1. What is the DOM?
+
+DOM = Document Object Model
+It represents your HTML page as a tree of objects that JavaScript can control.
+
+Example HTML:
+
+<h1 id="title">Hello</h1>
+
+JS can access it like:
+
+document.getElementById("title")
+
+
+---
+Selecting Elements (Most Important Part)
+
+1. getElementById
+
+document.getElementById("title")
+ 2. getElementsByClassName
+
+document.getElementsByClassName("box")
+
+3. getElementsByTagName
+
+document.getElementsByTagName("p")
+
+4. querySelector → selects FIRST match
+
+document.querySelector(".container")
+
+5. querySelectorAll → selects ALL matches
+
+document.querySelectorAll("p")
+
+
+---
+
+3. Changing Content
+
+innerText
+
+document.getElementById("title").innerText = "Welcome!";
+
+innerHTML (renders HTML)
+
+document.getElementById("title").innerHTML = "<b>Bold Text</b>";
+
+textContent
+
+Shows hidden text also.
+
+element.textContent = "New text";
+
+
+---
+
+4. Changing Styles (CSS using JS)
+
+document.getElementById("title").style.color = "red";
+document.getElementById("title").style.fontSize = "40px";
+
+
+---
+
+5. Adding & Removing Classes
+
+element.classList.add("active");
+element.classList.remove("hide");
+element.classList.toggle("dark-mode");
+
+
+---
+
+ 6. Creating New Elements (Important)
+
+Step 1 → create element
+
+let div = document.createElement("div");
+
+Step 2 → set content
+
+div.innerText = "I am new!";
+
+Step 3 → attach it into HTML
+
+document.body.appendChild(div);
+
+For inserting inside another element:
+
+parent.appendChild(child);
+parent.prepend(child);
+parent.insertBefore(child, reference);
+
+
+---
+ 7. Removing Elements
+
+let box = document.getElementById("box");
+box.remove();
+
+
+
+---
+
+9. Adding Events (3 Methods)
+
+Method 1 → Inline
+
+<button onclick="sayHi()">Click</button>
+
+<script>
+function sayHi(){
+   alert("Hi!");
+}
+</script>
+Method 2 → Property Event
+
+button.onclick = function(){
+    console.log("Button clicked");
+}
+
+Method 3 → addEventListener (BEST)
+
+document.getElementById("btn").addEventListener("click", function(){
+    alert("Clicked!");
+});
+
+
+---
+
+10. SUPER IMPORTANT: Event Object
+
+document.addEventListener("click", function(event){
+    console.log(event.target);
+});
+
+event.target tells which element fired the event.
+
+
+---
+
+11. DOM + Events Practical Example
+
+Example 1: Change text on button click
+
+HTML
+
+<h2 id="title">Original</h2>
+<button id="btn">Change</button>
+
+JS
+
+document.getElementById("btn").addEventListener("click", () => {
+    document.getElementById("title").innerText = "Changed!";
+});
+
+
+---
+
+12. Example 2: Create a new box on each click
+
+HTML
+
+<button id="add">Add Box</button>
+<div id="container"></div>
+
+JS
+
+document.getElementById("add").addEventListener("click", () => {
+    let box = document.createElement("div");
+    box.innerText = "New Box";
+    box.style.border = "1px solid black";
+    box.style.margin = "10px";
+    box.style.padding = "10px";
+    document.getElementById("container").appendChild(box);
+});
+
+
+---
+
+13. Example 3: Live Input (instant typing)
+
+HTML
+
+<input id="name" placeholder="Type here">
+<h3 id="display"></h3>
+
+JS
+
+document.getElementById("name").addEventListener("input", (e) => {
+    document.getElementById("display").innerText = e.target.value;
+});
+
+
+---
+
+14. Example 4: Dark Mode Toggle
+
+HTML
+
+<button id="toggle">Dark Mode</button>
+
+JS
+
+document.getElementById("toggle").addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+});
+
+
+---
+
+
+Tell me a number and I’ll build it with you step by step.. querySelector → selects FIRST match
+document.querySelector(".container")
+
+ 5. querySelectorAll → selects ALL matches
+document.querySelectorAll("p")
+
+
+---
+
+3. Changing Content
+
+innerText
+document.getElementById("title").innerText = "Welcome!";
+innerHTML (renders HTML)
+document.getElementById("title").innerHTML = "<b>Bold Text</b>";
+textContent
+
+Shows hidden text also.
+element.textContent = "New text";
+
+
+---
+
+ 4. Changing Styles (CSS using JS)
+
+document.getElementById("title").style.color = "red";
+document.getElementById("title").style.fontSize = "40px";
+
+
+---
+
+5. Adding & Removing Classes
+
+element.classList.add("active");
+element.classList.remove("hide");
+element.classList.toggle("dark-mode");
+
+
+---
+
+6. Creating New Elements (Important)
+
+Step 1 → create element
+let div = document.createElement("div");
+
+Step 2 → set content
+div.innerText = "I am new!";
+
+Step 3 → attach it into HTML
+document.body.appendChild(div);
+
+For inserting inside another element:
+parent.appendChild(child);
+parent.prepend(child);
+parent.insertBefore(child, reference);
+
+
+---
+
+7. Removing Elements
+
+let box = document.getElementById("box");
+box.remove();
+
+
+
+
+---
+
+ 9. Adding Events (3 Methods)
+
+Method 1 → Inline
+
+<button onclick="sayHi()">Click</button>
+
+<script>
+function sayHi(){
+   alert("Hi!");
+}
+</script>
+
+Method 2 → Property Event
+
+button.onclick = function(){
+    console.log("Button clicked");
+}
+
+Method 3 → addEventListener (BEST)
+
+document.getElementById("btn").addEventListener("click", function(){
+    alert("Clicked!");
+});
+
+
+---
+
+ 10. SUPER IMPORTANT: Event Object
+
+document.addEventListener("click", function(event){
+    console.log(event.target);
+});
+event.target tells which element fired the event.
+
+
+---
+
+11. DOM + Events Practical Example
+
+ Example 1: Change text on button click
+
+HTML
+<h2 id="title">Original</h2>
+<button id="btn">Change</button>
+
+JS
+document.getElementById("btn").addEventListener("click", () => {
+    document.getElementById("title").innerText = "Changed!";
+});
+
+
+---
+
+12. Example 2: Create a new box on each click
+
+HTML
+<button id="add">Add Box</button>
+<div id="container"></div>
+
+JS
+document.getElementById("add").addEventListener("click", () => {
+    let box = document.createElement("div");
+    box.innerText = "New Box";
+    box.style.border = "1px solid black";
+    box.style.margin = "10px";
+    box.style.padding = "10px";
+    document.getElementById("container").appendChild(box);
+});
+
+
+---
+
+13. Example 3: Live Input (instant typing)
+
+HTML
+<input id="name" placeholder="Type here">
+<h3 id="display"></h3>
+
+JS
+document.getElementById("name").addEventListener("input", (e) => {
+    document.getElementById("display").innerText = e.target.value;
+});
+
+
+---
+
+14. Example 4: Dark Mode Toggle
+
+HTML
+<button id="toggle">Dark Mode</button>
+
+JS
+document.getElementById("toggle").addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+});
+
+
+---
