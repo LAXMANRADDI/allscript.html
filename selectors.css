@@ -1,0 +1,7 @@
+div p                 /* all p inside div */
+ul > li               /* direct li child */
+h1 + p                /* next p after h1 */
+h1 ~ p                /* all p after h1 */
+input[type="email"]   /* attribute selector */
+p::before             /* pseudo element */
+a:hover               /* pseudo class */
