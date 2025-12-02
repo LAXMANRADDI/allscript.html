@@ -5,3 +5,280 @@ h1 ~ p                /* all p after h1 */
 input[type="email"]   /* attribute selector */
 p::before             /* pseudo element */
 a:hover               /* pseudo class */
+
+
+ Basic Selectors
+1. Universal Selector
+Selects *everything*.
+```
+css
+* {
+  margin: 0;
+}
+```
+2. Element Selector
+
+Selects all tags of that type.
+``
+css
+p {
+  color: blue;
+}
+```
+3. Class Selector
+Used to style elements with a class name.
+```
+css
+.box {
+  background: yellow;
+}
+HTML:
+```
+html
+<div class="box"></div>
+---
+4. ID Selector
+
+ID must be unique per page.
+```
+css
+#title {
+  font-size: 30px;
+}
+```
+HTML:
+```
+html
+<h1 id="title"></h1>
+--
+5. Group Selector
+
+Applies same style to multiple elements.
+
+```
+css
+h1, p, span {
+  color: red;
+}
+```
+
+2. Combinator Selectors (Important)
+1. Descendant Selector (space)
+Selects an element inside another (any level deep).
+
+css
+div p {
+  color: green;
+}
+```
+Means: *All `<p>` inside `<div>`*.
+
+2. Child Selector (`>`)**
+
+Direct child only.
+css
+ul > li {
+  color: blue;
+}
+```
+
+---
+3. Adjacent Sibling (`+`)
+
+Selects element that comes **right after** another.
+
+```
+css
+h1 + p {
+  color: purple;
+}
+```
+4. General Sibling (`~`)
+
+Selects all siblings after the element.
+
+css
+h1 ~ p {
+  color: orange;
+}
+---
+
+3. Attribute Selectors
+
+Used when selecting elements based on **attributes**.
+
+ Element with an attribute
+
+css
+input[type] {
+  border: 1px solid black;
+}
+``
+## Specific attribute value
+```
+css
+input[type="text"] {
+  background: lightyellow;
+}
+```
+# Attribute contains substring
+
+```css
+a[href*="google"] {
+  color: red;
+}
+```
+
+## Attribute starts with
+
+```
+css
+a[href^="https"] {
+  font-weight: bold;
+}
+```
+ Attribute ends with
+
+```
+css
+img[src$=".png"] {
+  border: 2px solid green;
+}
+```
+4. Pseudo-Class Selectors
+
+Pseudo-classes select elements based on **state**.
+
+# 🔹 Hover
+
+```
+css
+button:hover {
+  background: black;
+  color: white;
+}
+```
+#🔹 Active (when pressing)
+```
+css
+button:active {
+  transform: scale(0.95);
+}
+```
+🔹 Focus (for input)
+
+``
+css
+input:focus {
+  border-color: blue;
+}
+```
+# List-related:
+
+css
+li:first-child { color: red; }
+li:last-child { color: green; }
+li:nth-child(3) { color: purple; }
+li:nth-child(odd) { background: #eee; }
+li:nth-child(even) { background: #ccc; }
+
+```
+css
+input:checked { box-shadow: 0 0 5px green; }
+input:disabled { opacity: 0.5; }
+input:required { border-left: 3px solid red; }
+```
+
+---
+5. Pseudo-Element Selectors
+
+Pseudo-elements style **parts** of an element.
+#🔹 First letter
+``
+css
+p::first-letter {
+  font-size: 30px;
+}
+``
+#🔹 First line
+
+```
+css
+p::first-line {
+  color: blue;
+}
+```
+# 🔹 Before content
+```
+css
+h1::before {
+  content: "★ ";
+}
+```
+#🔹 After content
+``
+css
+h1::after {
+  content: " ✔";
+}
+``
+#🔹 Selection color
+```
+css
+::selection {
+  background: yellow;
+}
+```
+
+6. Advanced Selectors (Important in Interviews)
+
+# :not()
+Select everything except a specific selector.
+```
+css
+button:not(.primary) {
+  background: gray;
+}
+---
+
+# :is() (simplifies complex selectors)
+```
+css
+:is(h1, h2, h3) {
+  color: blue;
+}
+```
+
+# :where() (same as :is but no specificity)
+
+```
+css
+:where(section p) {
+  margin: 5px;
+}
+```
+
+---
+
+##:has() (CSS parent selector — NEW!)
+Selects a parent by what it contains.
+Example: select all `<div>` that have an `<img>` inside.
+
+```
+css
+div:has(img) {
+  border: 2px solid red;
+}
+```
+
+7. Specificity Rules (very important)
+
+| Selector Type            | Specificity |
+| ------------------------ | ----------- |
+| Inline CSS               | highest     |
+| ID                       | high        |
+| Class / pseudo-class     | medium      |
+| Element / pseudo-element | low         |
+| `*`                      | lowest      |
+
+
