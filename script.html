@@ -40,7 +40,6 @@ __
 3.Conditions
 
 let marks = 85;
-
 if(marks >= 90){
    console.log("A+");
 } 
@@ -55,7 +54,6 @@ ____
 
 
 4. Functions
-
 function add(a, b) {
    return a + b;
 }
@@ -66,18 +64,14 @@ const add = (a, b) => a + b;
 
 ---
 5.  Arrays
-
 let arr = [10, 20, 30];
-
 console.log(arr[0]);
 arr.push(40);
 arr.pop();
 
 
 ---
-
 6. Objects
-
 let student = {
     name: "Laxman",
     age: 20,
@@ -85,77 +79,30 @@ let student = {
 };
 console.log(student.name);
 
-____
-
-Perfect — let's start DOM Manipulation + Event Creation from the absolute basics, then go step-by-step into powerful examples.
-
-
----
-
- 1. What is the DOM?
-
 DOM = Document Object Model
 It represents your HTML page as a tree of objects that JavaScript can control.
 
 Example HTML:
-
 <h1 id="title">Hello</h1>
-
 JS can access it like:
-
 document.getElementById("title")
-
-
 ---
 
 2. Selecting Elements (Most Important Part)
 1. getElementById
-
 document.getElementById("title")
 
 2. getElementsByClassName
-
 document.getElementsByClassName("box")
+
  3. getElementsByTagName
-
 document.getElementsByTagName("p")
 
----
-
- 1. What is the DOM?
-
-DOM = Document Object Model
-It represents your HTML page as a tree of objects that JavaScript can control.
-
-Example HTML:
-
-<h1 id="title">Hello</h1>
-
-JS can access it like:
-
-document.getElementById("title")
-
-
----
-Selecting Elements (Most Important Part)
-
-1. getElementById
-
-document.getElementById("title")
- 2. getElementsByClassName
-
-document.getElementsByClassName("box")
-
-3. getElementsByTagName
-
-document.getElementsByTagName("p")
 
 4. querySelector → selects FIRST match
-
 document.querySelector(".container")
 
 5. querySelectorAll → selects ALL matches
-
 document.querySelectorAll("p")
 
 
@@ -164,13 +111,9 @@ document.querySelectorAll("p")
 3. Changing Content
 
 innerText
-
 document.getElementById("title").innerText = "Welcome!";
-
 innerHTML (renders HTML)
-
 document.getElementById("title").innerHTML = "<b>Bold Text</b>";
-
 textContent
 Shows hidden text also.
 element.textContent = "New text";
@@ -179,7 +122,6 @@ element.textContent = "New text";
 ---
 
 4. Changing Styles (CSS using JS)
-
 document.getElementById("title").style.color = "red";
 document.getElementById("title").style.fontSize = "40px";
 
@@ -211,24 +153,16 @@ For inserting inside another element:
 parent.appendChild(child);
 parent.prepend(child);
 parent.insertBefore(child, reference);
-
-
 ---
  7. Removing Elements
-
 let box = document.getElementById("box");
 box.remove();
-
-
-
 ---
 
 9. Adding Events (3 Methods)
 
 Method 1 → Inline
-
 <button onclick="sayHi()">Click</button>
-
 <script>
 function sayHi(){
    alert("Hi!");
@@ -239,9 +173,7 @@ Method 2 → Property Event
 button.onclick = function(){
     console.log("Button clicked");
 }
-
 Method 3 → addEventListener (BEST)
-
 document.getElementById("btn").addEventListener("click", function(){
     alert("Clicked!");
 });
@@ -250,11 +182,9 @@ document.getElementById("btn").addEventListener("click", function(){
 ---
 
 10. SUPER IMPORTANT: Event Object
-
 document.addEventListener("click", function(event){
     console.log(event.target);
 });
-
 event.target tells which element fired the event.
 
 
@@ -435,9 +365,7 @@ event.target tells which element fired the event.
 ---
 
 11. DOM + Event Example
-
  Example 1: Change text on button click
-
 HTML
 <h2 id="title">Original</h2>
 <button id="btn">Change</button>
@@ -470,7 +398,6 @@ document.getElementById("add").addEventListener("click", () => {
 ---
 
 13. Example 3: Live Input (instant typing)
-
 HTML
 <input id="name" placeholder="Type here">
 <h3 id="display"></h3>
@@ -484,14 +411,18 @@ document.getElementById("name").addEventListener("input", (e) => {
 ---
 
 14. Example 4: Dark Mode Toggle
-
 HTML
 <button id="toggle">Dark Mode</button>
-
 JS
 document.getElementById("toggle").addEventListener("click", () => {
     document.body.classList.toggle("dark");
 });
-
-
 ---
+COMMON EVENR TYPES::::
+click
+dblclick
+mouseover
+mouseout
+mousedown
+mouseup
+contextmenu (right-click)
