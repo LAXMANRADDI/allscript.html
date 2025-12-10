@@ -98,7 +98,8 @@ css
 h1 + p {
   color: purple;
 }
-```
+
+
 4. General Sibling (`~`)
 
 Selects all siblings after the element.
@@ -107,7 +108,8 @@ css
 h1 ~ p {
   color: orange;
 }
----
+
+
 
 3. Attribute Selectors
 
@@ -133,19 +135,20 @@ input[type="text"] {
 a[href*="google"] {
   color: red;
 }
-```
+---
 
 ## Attribute starts with
 
-```
+
 css
 a[href^="https"] {
   font-weight: bold;
 }
-```
+
+---
  Attribute ends with
 
-```
+
 css
 img[src$=".png"] {
   border: 2px solid green;
@@ -155,7 +158,7 @@ img[src$=".png"] {
 
 Pseudo-classes select elements based on **state**.
 
-# 🔹 Hover
+#  Hover
 
 ```
 css
@@ -164,7 +167,7 @@ button:hover {
   color: white;
 }
 ```
-#🔹 Active (when pressing)
+#Active (when pressing)
 ```
 css
 button:active {
