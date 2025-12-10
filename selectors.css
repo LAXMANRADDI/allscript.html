@@ -6,7 +6,6 @@ input[type="email"]   /* attribute selector */
 p::before             /* pseudo element */
 a:hover               /* pseudo class */
 
-
  Basic Selectors
 1. Universal Selector
 Selects *everything*.
@@ -15,7 +14,8 @@ css
 * {
   margin: 0;
 }
-```
+
+
 2. Element Selector
 
 Selects all tags of that type.
