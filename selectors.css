@@ -64,7 +64,7 @@ css
 h1, p, span {
   color: red;
 }
-```
+
 
 B. Combinator Selectors (Important)
 
@@ -75,7 +75,7 @@ css
 div p {
   color: green;
 }
-```
+
 Means: *All `<p>` inside `<div>`*.
 
 
@@ -93,7 +93,7 @@ ul > li {
 
 Selects element that comes **right after** another.
 
-```
+
 css
 h1 + p {
   color: purple;
@@ -121,17 +121,16 @@ css
 input[type] {
   border: 1px solid black;
 }
-``
+
 ## Specific attribute value
-```
+
 css
 input[type="text"] {
   background: lightyellow;
 }
-```
-# Attribute contains substring
 
-```css
+(*)Attribute contains substring
+css
 a[href*="google"] {
   color: red;
 }
@@ -153,14 +152,12 @@ css
 img[src$=".png"] {
   border: 2px solid green;
 }
-```
+
 4. Pseudo-Class Selectors
 
 Pseudo-classes select elements based on **state**.
 
 #  Hover
-
-```
 css
 button:hover {
   background: black;
@@ -173,15 +170,13 @@ css
 button:active {
   transform: scale(0.95);
 }
-```
-🔹 Focus (for input)
 
-``
+
+Focus (for input)
 css
 input:focus {
   border-color: blue;
 }
-```
 # List-related:
 
 css
@@ -202,36 +197,35 @@ input:required { border-left: 3px solid red; }
 5. Pseudo-Element Selectors
 
 Pseudo-elements style **parts** of an element.
-#🔹 First letter
-``
+# First letter
 css
 p::first-letter {
   font-size: 30px;
 }
-``
-#🔹 First line
 
-```
+# First line
+
+
 css
 p::first-line {
   color: blue;
 }
-```
-# 🔹 Before content
-```
+
+# Before content
 css
 h1::before {
   content: "★ ";
 }
-```
-#🔹 After content
+
+# After content
 ``
 css
 h1::after {
   content: " ✔";
 }
-``
-#🔹 Selection color
+
+
+#Selection color
 ```
 css
 ::selection {
@@ -243,7 +237,7 @@ css
 
 # :not()
 Select everything except a specific selector.
-```
+
 css
 button:not(.primary) {
   background: gray;
@@ -251,34 +245,27 @@ button:not(.primary) {
 ---
 
 # :is() (simplifies complex selectors)
-```
 css
 :is(h1, h2, h3) {
   color: blue;
 }
-```
+
 
 # :where() (same as :is but no specificity)
-
-```
 css
 :where(section p) {
   margin: 5px;
 }
-```
-
 ---
 
 ##:has() (CSS parent selector — NEW!)
 Selects a parent by what it contains.
 Example: select all `<div>` that have an `<img>` inside.
-
-```
 css
 div:has(img) {
   border: 2px solid red;
 }
-```
+
 
 7. Specificity Rules (very important)
 
